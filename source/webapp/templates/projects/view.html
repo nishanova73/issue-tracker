@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Project {{project.pk}}{% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'task_add' %}">Add task</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'project_add' %}">Add project</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'project_update' project.pk %}">Edit</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'project_delete' project.pk %}">Delete</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'project_task_add' project.pk %}">Create Task</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <h1>{{ project.title }}</h1>
+    <h2>{{ project.description }}</h2>
+    <p>{{ project.date_started }}</p>
+    <p>{{ project.date_finished }}</p>
+<h3>Tasks</h3>
+    {% include 'partial/simple_search.html' %}
+     {% if is_paginated %}
+         {% include 'partial/pagination.html' %}
+     {% endif %}
+
+    {% for task in tasks %}
+        <h3>{{ task.description }}</h3>
+        <p>
+            <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
+            <a href='{% url "task_update" task.pk%}'>Edit the task📝</a>
+            <a href='{% url "task_delete" task.pk%}'>Delete the task✂️</a>
+        </p>
+    {% endfor %}
+
+    {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+    {% endif %}
+{% endblock %}

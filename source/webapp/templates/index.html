@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Tasks page{% endblock %}
+{% block content %}
+<h1>📝ISSUE TRACKER📝</h1>
+</br>
+</br>
+    {% include 'partial/simple_search.html' %}
+     {% if is_paginated %}
+         {% include 'partial/pagination.html' %}
+     {% endif %}
+
+    {% for task in tasks %}
+        <h3>{{ task.description }}</h3>
+        <p>
+            <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
+            <a href='{% url "task_update" task.pk%}'>Edit the task📝</a>
+            <a href='{% url "task_delete" task.pk%}'>Delete the task✂️</a>
+        </p>
+    {% endfor %}
+
+    {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+    {% endif %}
+
+{% endblock %}

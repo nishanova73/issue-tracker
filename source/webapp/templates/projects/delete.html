@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Do you really want to delete {{ project.title }}?</h2>
+        <input type="submit" value="Yes">
+    </form>
+    <a href="{% url 'project_view' project.pk %}">No</a>
+{% endblock %}

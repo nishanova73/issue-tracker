@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Task {{task.pk}}{% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'task_add' %}">Add</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'task_update' task.pk %}">Edit</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'task_delete' task.pk %}">Delete</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <h1>{{ task.description }}</h1>
+    <h2>{{ task.detailed_description }}</h2>
+    <p>{{ task.created_at }}</p>
+    <p>{{ task.updated_at }}</p>
+<h3>Status</h3>
+    {{ task.statuses }}
+<h3>Project</h3>
+    {{ task.project }}
+<h3>Types</h3>
+    {% for type in task.types.all %}
+        {{ type.title }}{% if not forloop.last %}, {% else %}. {% endif %}
+    {% endfor %}
+{% endblock %}
