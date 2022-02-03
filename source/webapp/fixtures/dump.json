@@ -29,6 +29,142 @@
     }
 },
 {
+    "model": "webapp.task",
+    "pk": 3,
+    "fields": {
+        "description": "u34yrfhbcajksduhgvn,zuildshjkvnm,as",
+        "detailed_description": "djcvyahwebfbvcjkeayrhfbaey6w45yeo8grvbjkz bjfvasdv",
+        "statuses": 3,
+        "project": 2,
+        "created_at": "2022-02-03T04:05:22.197Z",
+        "updated_at": "2022-02-03T04:05:22.197Z",
+        "types": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 5,
+    "fields": {
+        "description": "srvsdrfbvsfdgbsfhghmndbsfgfnbg",
+        "detailed_description": "gbgfbrnhtdfnbg sdhfngbdhgfngbsfgdfs",
+        "statuses": 2,
+        "project": 3,
+        "created_at": "2022-02-03T05:51:15.327Z",
+        "updated_at": "2022-02-03T05:51:15.327Z",
+        "types": []
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 6,
+    "fields": {
+        "description": "8734pgefbcjkwegrijasvbwhjerhg",
+        "detailed_description": "kedjyvt87fqgebrhvgwesrkjfnbpvhwrstb",
+        "statuses": 3,
+        "project": 2,
+        "created_at": "2022-02-03T05:51:31.212Z",
+        "updated_at": "2022-02-03T05:51:31.212Z",
+        "types": [
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 7,
+    "fields": {
+        "description": "ersoify23pq9gibrefc78yaehvbrhgviu;owfegryiobgsr",
+        "detailed_description": "lkesdyf6vqgejrpfy8gwerjpovcuyiegfjbnvoiysrvmwrfv",
+        "statuses": 2,
+        "project": 2,
+        "created_at": "2022-02-03T05:51:42.950Z",
+        "updated_at": "2022-02-03T05:51:42.950Z",
+        "types": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 8,
+    "fields": {
+        "description": "rqelitu7fy2b45r9e7vygwh4ljgrw455",
+        "detailed_description": "45yg35t4b5tbrymnoufuy7gubhjnkmljiu7y6t7rdfcgbv mn,k",
+        "statuses": 2,
+        "project": 1,
+        "created_at": "2022-02-03T05:51:58.849Z",
+        "updated_at": "2022-02-03T05:51:58.849Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 9,
+    "fields": {
+        "description": "juegtfvtg45678697,6oit rjdgsf23vt",
+        "detailed_description": "wrtbvwwgrnbetrhrhbegfdfcvbghrjntmkujnhgfdfcvgetbhy",
+        "statuses": 1,
+        "project": 3,
+        "created_at": "2022-02-03T05:52:15.875Z",
+        "updated_at": "2022-02-03T05:52:15.875Z",
+        "types": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 10,
+    "fields": {
+        "description": "2hryth46drvshebdsgvrrtbnr6etyrsvqe4",
+        "detailed_description": "vtgbetnr6uyetb wr5t5tyjhreyt",
+        "statuses": 3,
+        "project": 3,
+        "created_at": "2022-02-03T05:52:32.700Z",
+        "updated_at": "2022-02-03T05:52:32.700Z",
+        "types": [
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 11,
+    "fields": {
+        "description": "v etygvwr745yfhncaekyhefrcafvet",
+        "detailed_description": "bwuirv87c6tgabhcjeygbhcnmkliu89y7gvhb nm,l;",
+        "statuses": 2,
+        "project": 2,
+        "created_at": "2022-02-03T05:52:57.812Z",
+        "updated_at": "2022-02-03T05:52:57.813Z",
+        "types": [
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 12,
+    "fields": {
+        "description": "Qretq45673bnjehtgvbetynbew5rat",
+        "detailed_description": "etb srtb 5yen7bvuhcйн3пуицсмцй4ееимцкпафу",
+        "statuses": 3,
+        "project": 3,
+        "created_at": "2022-02-03T05:53:15.531Z",
+        "updated_at": "2022-02-03T05:53:15.531Z",
+        "types": [
+            2
+        ]
+    }
+},
+{
     "model": "webapp.statusmodel",
     "pk": 1,
     "fields": {
@@ -85,9 +221,19 @@
     "pk": 2,
     "fields": {
         "date_started": "2026-01-10",
-        "date_finished": null,
-        "title": "erlfgkq9834bjw,tfoyq",
+        "date_finished": "2031-08-16",
+        "title": "erlfgkq9834bjw,BN KU",
         "description": "jiyhnhueargjgv.kjaejkryhjktn;q83y4ihwurkjvhaefbs"
+    }
+},
+{
+    "model": "webapp.project",
+    "pk": 3,
+    "fields": {
+        "date_started": "2023-04-01",
+        "date_finished": "2029-03-10",
+        "title": "76236rgFTUYVMIR",
+        "description": "m.nzoyfbxhnz,ehrysgvhbzbsg yiuqerbkUHGRFH"
     }
 }
 ]
