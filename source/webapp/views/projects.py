@@ -60,14 +60,14 @@ class ProjectDeleteView(DeleteView):
             return super().delete(request, *args, **kwargs)
         return super().get(request, *args, **kwargs)
 
-
 class ProjectCreateTask(CreateView):
     model = Task
-    form_class = TaskForm
     template_name = 'projects/create_task.html'
+    form_class = TaskForm
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
         task = form.save(commit=False)
-        task.save()
-        return redirect('project_view', pk=project.pk)
+        task.project = project
+        project.save()
+        return redirect('task_view', pk=project.pk)
