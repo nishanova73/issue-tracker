@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
-from django.views.generic import FormView, ListView, DetailView, CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from webapp.views.base import TemplateView
-from webapp.forms import ProjectForm, TaskForm
+from webapp.forms import ProjectForm, TaskForm, ProjectDeleteForm
 from webapp.models import Project, Task
 
 
@@ -32,43 +32,33 @@ class ProjectView(DetailView):
         return context
 
 
-class ProjectUpdateView(FormView):
+class ProjectUpdateView(UpdateView):
     form_class = ProjectForm
-    template_name = 'projects/update.html'
+    template_name = "projects/update.html"
+    model = Project
+
+
+class ProjectDeleteView(DeleteView):
+    model = Project
+    template_name = "projects/delete.html"
+    success_url = reverse_lazy('main_page2')
 
     def dispatch(self, request, *args, **kwargs):
-        self.project = self.get_object()
-        return super(ProjectUpdateView, self).dispatch(request, *args, **kwargs)
+        if self.request.method == "POST":
+            self.object_form = ProjectDeleteForm(instance=self.get_object(), data=self.request.POST)
+        else:
+            self.object_form = ProjectDeleteForm()
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['project'] = self.project
+        context['form'] = self.object_form
         return context
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['instance'] = self.project
-        return kwargs
-
-    def form_valid(self, form):
-        self.project = form.save()
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse('project_view', kwargs={"pk": self.project.pk})
-
-    def get_object(self):
-        return get_object_or_404(Project, pk=self.kwargs.get("pk"))
-
-class ProjectDeleteView(TemplateView):
-    def get(self, request, pk=None, *args, **kwargs):
-        project = get_object_or_404(Project, pk=pk)
-        return render(request, 'projects/delete.html', {'project': project})
-
-    def post(self, request, pk=None, *args, **kwargs):
-        project = get_object_or_404(Project, pk=pk)
-        project.delete()
-        return redirect('main_page2')
+    def post(self, request, *args, **kwargs):
+        if self.object_form.is_valid():
+            return super().delete(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
 
 class ProjectCreateTask(CreateView):

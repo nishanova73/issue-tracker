@@ -1,10 +1,10 @@
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
-from django.views.generic import FormView, ListView, DetailView, CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.views.base import TemplateView, FormView as CustomFormView
-from webapp.forms import TaskForm, SearchForm
+from webapp.forms import TaskForm, SearchForm, TaskDeleteForm
 from webapp.models import Task
 
 class IndexView(ListView):
@@ -60,41 +60,30 @@ class TaskView(DetailView):
         context['types'] = types
         return context
 
-
-class TaskUpdateView(FormView):
+class TaskUpdateView(UpdateView):
     form_class = TaskForm
-    template_name = 'task_update.html'
+    template_name = "task_update.html"
+    model = Task
+
+
+class TaskDeleteView(DeleteView):
+    model = Task
+    template_name = "task_delete.html"
+    success_url = reverse_lazy('main_page')
 
     def dispatch(self, request, *args, **kwargs):
-        self.task = self.get_object()
-        return super(TaskUpdateView, self).dispatch(request, *args, **kwargs)
+        if self.request.method == "POST":
+            self.object_form = TaskDeleteForm(instance=self.get_object(), data=self.request.POST)
+        else:
+            self.object_form = TaskDeleteForm()
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['task'] = self.task
+        context['form'] = self.object_form
         return context
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['instance'] = self.task
-        return kwargs
-
-    def form_valid(self, form):
-        self.task = form.save()
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse('task_view', kwargs={"pk": self.task.pk})
-
-    def get_object(self):
-        return get_object_or_404(Task, pk=self.kwargs.get("pk"))
-
-class TaskDeleteView(TemplateView):
-    def get(self, request, pk=None, *args, **kwargs):
-        task = get_object_or_404(Task, pk=pk)
-        return render(request, 'task_delete.html', {'task': task})
-
-    def post(self, request, pk=None, *args, **kwargs):
-        task = get_object_or_404(Task, pk=pk)
-        task.delete()
-        return redirect('main_page')
+    def post(self, request, *args, **kwargs):
+        if self.object_form.is_valid():
+            return super().delete(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
