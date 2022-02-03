@@ -29,11 +29,12 @@
      {% endif %}
 
     {% for task in tasks %}
+        <span>{{ forloop.counter }}</span>
         <h3>{{ task.description }}</h3>
         <p>
             <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
-            <a href='{% url "task_update" task.pk%}'>Edit the task📝</a>
-            <a href='{% url "task_delete" task.pk%}'>Delete the task✂️</a>
+            <a href='{% url "task_update" task.pk %}'>Edit the task📝</a>
+            <a href='{% url "task_delete" task.pk %}'>Delete the task✂️</a>
         </p>
     {% endfor %}
 

@@ -36,3 +36,28 @@ class ProjectForm(forms.ModelForm):
             'date_started': forms.SelectDateWidget(),
             'date_finished': forms.SelectDateWidget(),
         }
+
+
+class TaskDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ("description",)
+
+    def clean_title(self):
+        print(self.instance.title, self.cleaned_data.get("description"))
+        if self.instance.title != self.cleaned_data.get("description"):
+            print('error')
+            raise ValidationError("Description isn't valid")
+        return self.cleaned_data.get("description")
+
+class ProjectDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ("title",)
+
+    def clean_title(self):
+        print(self.instance.title, self.cleaned_data.get("title"))
+        if self.instance.title != self.cleaned_data.get("title"):
+            print('error')
+            raise ValidationError("Title isn't valid")
+        return self.cleaned_data.get("title")
