@@ -14,7 +14,7 @@ class Task(models.Model):
     statuses = models.ForeignKey('webapp.StatusModel', default='new', on_delete=models.PROTECT,
                                  related_name='status', verbose_name="Status")
     project = models.ForeignKey('webapp.Project', default=None, on_delete=models.PROTECT,
-                                related_name='project', verbose_name="Project")
+                                related_name='tasks', verbose_name="Project")
     types = models.ManyToManyField('webapp.TypeModel', max_length=15,  related_name='types')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Date changed")
