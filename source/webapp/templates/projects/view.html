@@ -2,19 +2,16 @@
 {% block title %}Project {{project.pk}}{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'task_add' %}">Add task</a>
+        <a class="nav-link" href="{% url 'project_add' %}">Create project</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_add' %}">Add project</a>
+        <a class="nav-link" href="{% url 'project_task_add' project.pk %}">Add Task</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'project_update' project.pk %}">Edit</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'project_delete' project.pk %}">Delete</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_task_add' project.pk %}">Create Task</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -23,12 +20,8 @@
     <p>{{ project.date_started }}</p>
     <p>{{ project.date_finished }}</p>
 <h3>Tasks</h3>
-    {% include 'partial/simple_search.html' %}
-     {% if is_paginated %}
-         {% include 'partial/pagination.html' %}
-     {% endif %}
 
-    {% for task in tasks %}
+    {% for task in project.tasks.all %}
         <span>{{ forloop.counter }}</span>
         <h3>{{ task.description }}</h3>
         <p>
