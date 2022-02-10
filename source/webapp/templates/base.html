@@ -16,17 +16,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-         {% block nav %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'webapp:task_add' %}">Add task</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="{% url 'webapp:project_add' %}">Add project</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="{% url 'webapp:main_page2' %}">Projects</a>
-        </li>
-          {% endblock %}
+          {% block nav %}{% endblock %}
+                {% if not user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:login' %}">Log in</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'webapp:task_add' %}">Add task</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'webapp:project_add' %}">Add project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'webapp:main_page2' %}">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:logout' %}">Exit</a>
+                    </li>
+                {% endif %}
       </ul>
     </div>
   </div>

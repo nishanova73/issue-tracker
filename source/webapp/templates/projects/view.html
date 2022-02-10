@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}Project {{project.pk}}{% endblock %}
 {% block nav %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:project_add' %}">Create project</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Edit</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete</a>
-    </li>
+    {% if not user.is_authenticated %}
+{{pass}}
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:project_add' %}">Create project</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Edit</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete</a>
+        </li>
+{% endif %}
 {% endblock %}
 {% block content %}
     <h1>{{ project.title }}</h1>
@@ -24,11 +28,14 @@
     {% for task in project.tasks.all %}
         <span>{{ forloop.counter }}</span>
         <h3>{{ task.description }}</h3>
-        <p>
+        {% if not user.is_authenticated %}
             <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
+        {% else %}
+        <p>
             <a href='{% url "webapp:task_update" task.pk %}'>Edit the task📝</a>
             <a href='{% url "webapp:task_delete" task.pk %}'>Delete the task✂️</a>
         </p>
+        {% endif %}
     {% endfor %}
 
     {% if is_paginated %}

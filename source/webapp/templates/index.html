@@ -12,11 +12,15 @@
 
     {% for task in tasks %}
         <h3>{{ task.description }}</h3>
-        <p>
-            <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
-            <a href='{% url "webapp:task_update" task.pk%}'>Edit the task📝</a>
-            <a href='{% url "webapp:task_delete" task.pk%}'>Delete the task✂️</a>
-        </p>
+        {% if not user.is_authenticated %}
+            <p><a href='{{ task.get_absolute_url }}'>Show the task🔓</a></p>
+        {% else %}
+            <p>
+                <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
+                <a href='{% url "webapp:task_update" task.pk%}'>Edit the task📝</a>
+                <a href='{% url "webapp:task_delete" task.pk%}'>Delete the task✂️</a>
+            </p>
+        {% endif %}
     {% endfor %}
 
     {% if is_paginated %}

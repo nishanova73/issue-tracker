@@ -6,5 +6,5 @@
         <h2>Enter the task's title {{ task.description }}</h2>
         {% include 'partial/form.html' with button_text="Delete" %}
     </form>
-    <a href="{% url 'task_view' task.pk %}">No</a>
+    <a href="{% url 'webapp:task_view' task.pk %}">No</a>
 {% endblock %}

@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Task {{task.pk}}{% endblock %}
 {% block nav %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:task_add' %}">Add</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:task_update' task.pk %}">Edit</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:task_delete' task.pk %}">Delete</a>
-    </li>
+    {% if not user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:main_page2' %}">Projects</a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:task_add' %}">Add</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:task_update' task.pk %}">Edit</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:task_delete' task.pk %}">Delete</a>
+        </li>
+    {% endif %}
 {% endblock %}
 {% block content %}
     <h1>{{ task.description }}</h1>
