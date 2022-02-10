@@ -113,6 +113,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGOUT_REDIRECT_URL = "webapp:main_page"
+LOGIN_REDIRECT_URL = "webapp:main_page"
+
+LOGIN_URL = 'accounts:login'
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
