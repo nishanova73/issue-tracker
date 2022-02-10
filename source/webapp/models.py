@@ -20,7 +20,7 @@ class Task(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Date changed")
 
     def get_absolute_url(self):
-        return reverse('task_view', kwargs={'pk': self.pk})
+        return reverse('webapp:task_view', kwargs={'pk': self.pk})
 
     def __str__(self):
         return f"{self.pk}. {self.description}."
@@ -64,7 +64,7 @@ class Project(models.Model):
                                    validators=(MinLengthValidator(15),))
 
     def get_absolute_url(self):
-        return reverse('project_view', kwargs={'pk': self.pk})
+        return reverse('webapp:project_view', kwargs={'pk': self.pk})
 
     def __str__(self):
         return f"{self.pk}:{self.title}."

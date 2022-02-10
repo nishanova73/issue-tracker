@@ -41,7 +41,7 @@ class ProjectUpdateView(UpdateView):
 class ProjectDeleteView(DeleteView):
     model = Project
     template_name = "projects/delete.html"
-    success_url = reverse_lazy('main_page2')
+    success_url = reverse_lazy('webapp:main_page2')
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.method == "POST":
@@ -70,4 +70,4 @@ class ProjectCreateTask(CreateView):
         task = form.save(commit=False)
         task.project = project
         project.save()
-        return redirect('task_view', pk=task.pk)
+        return redirect('webapp:task_view', pk=task.pk)

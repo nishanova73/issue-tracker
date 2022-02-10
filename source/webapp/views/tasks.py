@@ -69,7 +69,7 @@ class TaskUpdateView(UpdateView):
 class TaskDeleteView(DeleteView):
     model = Task
     template_name = "task_delete.html"
-    success_url = reverse_lazy('main_page')
+    success_url = reverse_lazy('webapp:main_page')
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.method == "POST":

@@ -2,16 +2,16 @@
 {% block title %}Project {{project.pk}}{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_add' %}">Create project</a>
+        <a class="nav-link" href="{% url 'webapp:project_add' %}">Create project</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_task_add' project.pk %}">Add Task</a>
+        <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_update' project.pk %}">Edit</a>
+        <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Edit</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_delete' project.pk %}">Delete</a>
+        <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -26,8 +26,8 @@
         <h3>{{ task.description }}</h3>
         <p>
             <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
-            <a href='{% url "task_update" task.pk %}'>Edit the task📝</a>
-            <a href='{% url "task_delete" task.pk %}'>Delete the task✂️</a>
+            <a href='{% url "webapp:task_update" task.pk %}'>Edit the task📝</a>
+            <a href='{% url "webapp:task_delete" task.pk %}'>Delete the task✂️</a>
         </p>
     {% endfor %}
 

@@ -13,7 +13,7 @@ from webapp.views import (IndexView,
                           ProjectCreateTask
                           )
 
-
+app_name = 'webapp'
 
 urlpatterns = [
     path('', IndexView.as_view(), name="main_page"),

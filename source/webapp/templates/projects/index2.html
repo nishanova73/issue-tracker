@@ -9,8 +9,8 @@
         <h3>{{ project.title }}</h3>
         <p>
             <a href='{{ project.get_absolute_url }}'>Show the project🔓</a>
-            <a href='{% url "project_update" project.pk%}'>Edit the project📝</a>
-            <a href='{% url "project_delete" project.pk%}'>Delete the project✂️</a>
+            <a href='{% url "webapp:project_update" project.pk%}'>Edit the project📝</a>
+            <a href='{% url "webapp:project_delete" project.pk%}'>Delete the project✂️</a>
         </p>
     {% endfor %}
 
