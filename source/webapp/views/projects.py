@@ -70,4 +70,4 @@ class ProjectCreateTask(CreateView):
         task = form.save(commit=False)
         task.project = project
         project.save()
-        return redirect('task_view', pk=project.pk)
+        return redirect('task_view', pk=task.pk)
