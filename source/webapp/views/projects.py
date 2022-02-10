@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -60,7 +61,7 @@ class ProjectDeleteView(DeleteView):
             return super().delete(request, *args, **kwargs)
         return super().get(request, *args, **kwargs)
 
-class ProjectCreateTask(CreateView):
+class ProjectCreateTask(LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'projects/create_task.html'
     form_class = TaskForm
