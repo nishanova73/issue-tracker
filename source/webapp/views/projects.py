@@ -19,7 +19,7 @@ class IndexView_(ListView):
         return queryset.order_by("-date_started")
 
 
-class CreateProjectView(CreateView):
+class CreateProjectView(LoginRequiredMixin, CreateView):
     model = Project
     form_class = ProjectForm
     template_name = "projects/create.html"
@@ -33,13 +33,13 @@ class ProjectView(DetailView):
         return context
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ProjectForm
     template_name = "projects/update.html"
     model = Project
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = "projects/delete.html"
     success_url = reverse_lazy('webapp:main_page2')

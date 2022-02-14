@@ -61,13 +61,13 @@ class TaskView(DetailView):
         context['types'] = types
         return context
 
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
     form_class = TaskForm
     template_name = "task_update.html"
     model = Task
 
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(LoginRequiredMixin, DeleteView):
     model = Task
     template_name = "task_delete.html"
     success_url = reverse_lazy('webapp:main_page')

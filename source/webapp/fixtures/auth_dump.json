@@ -1,0 +1,20 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$feh2UdA8zyUR6l5RIjEYLR$lxCcAm1LDi/IfhCQF/E4fXzZASRApwCc/0SG0Drf6kY=",
+    "last_login": "2022-02-10T04:58:51.648Z",
+    "is_superuser": true,
+    "username": "chika",
+    "first_name": "",
+    "last_name": "",
+    "email": "nish@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-02-10T04:58:06.830Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
