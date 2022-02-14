@@ -21,6 +21,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'accounts:login' %}">Log in</a>
                     </li>
+                    li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:registration' %}?next={{ request.get_full_path }}">Sign in</a>
+                    </li>
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'webapp:task_add' %}">Add task</a>
