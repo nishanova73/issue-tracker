@@ -1,4 +1,7 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+)
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -19,10 +22,14 @@ class IndexView_(ListView):
         return queryset.order_by("-date_started")
 
 
-class CreateProjectView(LoginRequiredMixin, CreateView):
+class CreateProjectView(PermissionRequiredMixin, CreateView):
+    permission_required = "webapp.add_project"
     model = Project
     form_class = ProjectForm
     template_name = "projects/create.html"
+
+    def has_permission(self):
+        return super().has_permission() or self.request.user.username == self.get_object().user
 
 class ProjectView(DetailView):
     template_name = 'projects/view.html'
@@ -33,13 +40,18 @@ class ProjectView(DetailView):
         return context
 
 
-class ProjectUpdateView(LoginRequiredMixin, UpdateView):
+class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = "webapp.change_project"
     form_class = ProjectForm
     template_name = "projects/update.html"
     model = Project
 
+    def has_permission(self):
+        return super().has_permission() or self.request.user.username == self.get_object().user
 
-class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+
+class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = "webapp.delete_project"
     model = Project
     template_name = "projects/delete.html"
     success_url = reverse_lazy('webapp:main_page2')
@@ -61,7 +73,8 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
             return super().delete(request, *args, **kwargs)
         return super().get(request, *args, **kwargs)
 
-class ProjectCreateTask(LoginRequiredMixin, CreateView):
+class ProjectCreateTask(PermissionRequiredMixin, CreateView):
+    permission_required = "webapp.add_task"
     model = Task
     template_name = 'projects/create_task.html'
     form_class = TaskForm
@@ -72,3 +85,6 @@ class ProjectCreateTask(LoginRequiredMixin, CreateView):
         task.project = project
         project.save()
         return redirect('webapp:task_view', pk=task.pk)
+
+    def has_permission(self):
+        return super().has_permission() or self.request.user.username == self.get_object().user
