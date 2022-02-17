@@ -35,6 +35,7 @@ class ProjectForm(forms.ModelForm):
         widgets = {
             'date_started': forms.SelectDateWidget(),
             'date_finished': forms.SelectDateWidget(),
+            'user': forms.CheckboxSelectMultiple,
         }
 
 
