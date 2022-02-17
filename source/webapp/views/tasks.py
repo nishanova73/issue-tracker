@@ -1,4 +1,7 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+)
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
@@ -45,10 +48,14 @@ class IndexView(ListView):
             return self.form.cleaned_data.get("search")
 
 
-class CreateTaskView(LoginRequiredMixin, CreateView):
+class CreateTaskView(PermissionRequiredMixin, CreateView):
+    permission_required = "webapp.add_task"
     model = Task
     form_class = TaskForm
     template_name = "task_create.html"
+
+    def has_permission(self):
+        return super().has_permission() or self.request.user.username == self.get_object().user
 
 
 class TaskView(DetailView):
@@ -61,13 +68,19 @@ class TaskView(DetailView):
         context['types'] = types
         return context
 
-class TaskUpdateView(LoginRequiredMixin, UpdateView):
+
+class TaskUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = "webapp.change_task"
     form_class = TaskForm
     template_name = "task_update.html"
     model = Task
 
+    def has_permission(self):
+        return super().has_permission() or self.request.user.username == self.get_object().user
 
-class TaskDeleteView(LoginRequiredMixin, DeleteView):
+
+class TaskDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = "webapp.delete_task"
     model = Task
     template_name = "task_delete.html"
     success_url = reverse_lazy('webapp:main_page')
