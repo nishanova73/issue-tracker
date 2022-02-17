@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+</br>
     <form method="POST">
     {% csrf_token %}
         <h2>Enter the project's title {{ project.title }}</h2>
+        </br>
         {% include 'partial/form.html' with button_text="Delete" %}
     </form>
-    <a href="{% url 'project_view' project.pk %}">No</a>
+</br>
+    <form method="GET" action="{% url 'webapp:project_view' project.pk %}" target="_blank">
+   <button>No</button>
 {% endblock %}

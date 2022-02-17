@@ -32,8 +32,13 @@
             <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
         {% else %}
         <p>
-            <a href='{% url "webapp:task_update" task.pk %}'>Edit the task📝</a>
-            <a href='{% url "webapp:task_delete" task.pk %}'>Delete the task✂️</a>
+            <a href='{{ task.get_absolute_url }}'>Show the task🔓</a>
+            {% if perms.webapp.change_task %}
+                <a href='{% url "webapp:task_update" task.pk %}'>Edit the task📝</a>
+            {% endif %}
+            {% if perms.webapp.delete_task %}
+                <a href='{% url "webapp:task_delete" task.pk %}'>Delete the task✂️</a>
+            {% endif %}
         </p>
         {% endif %}
     {% endfor %}

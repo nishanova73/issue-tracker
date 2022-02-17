@@ -12,8 +12,12 @@
         {% else %}
         <p>
             <a href='{{ project.get_absolute_url }}'>Show the project🔓</a>
-            <a href='{% url "webapp:project_update" project.pk%}'>Edit the project📝</a>
-            <a href='{% url "webapp:project_delete" project.pk%}'>Delete the project✂️</a>
+            {% if perms.webapp.change_project %}
+                <a href='{% url "webapp:project_update" project.pk%}'>Edit the project📝</a>
+            {% endif %}
+            {% if perms.webapp.delete_project %}
+                <a href='{% url "webapp:project_delete" project.pk%}'>Delete the project✂️</a>
+            {% endif %}
         </p>
         {% endif %}
     {% endfor %}
