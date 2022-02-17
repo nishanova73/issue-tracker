@@ -1,37 +1,149 @@
 [
 {
-  "model": "auth.user",
+  "model": "auth.group",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$320000$feh2UdA8zyUR6l5RIjEYLR$lxCcAm1LDi/IfhCQF/E4fXzZASRApwCc/0SG0Drf6kY=",
-    "last_login": "2022-02-10T04:58:51.648Z",
+    "name": "Project Manager",
+    "permissions": [
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "change_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "delete_task",
+        "webapp",
+        "task"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Team Lead",
+    "permissions": [
+      [
+        "add_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "change_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "delete_task",
+        "webapp",
+        "task"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Developer",
+    "permissions": [
+      [
+        "add_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "change_task",
+        "webapp",
+        "task"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$nKa1ddw1zGg6BpZnLxE4ug$w9tszNMMGgZwsqLdt+vXQXFv67nCGUYpP6lWpeVrRJE=",
+    "last_login": "2022-02-17T09:54:02Z",
     "is_superuser": true,
-    "username": "chika",
+    "username": "root",
     "first_name": "",
     "last_name": "",
-    "email": "nish@mail.ru",
+    "email": "root@mail.ru",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2022-02-10T04:58:06.830Z",
-    "groups": [],
+    "date_joined": "2022-02-17T06:05:02Z",
+    "groups": [
+      [
+        "Project Manager"
+      ]
+    ],
     "user_permissions": []
   }
 },
 {
   "model": "auth.user",
-  "pk": 2,
+  "pk": 7,
   "fields": {
-    "password": "pbkdf2_sha256$320000$ZaXLxZ8jVpUgfiysbNS1nv$+kMyPD7JoOvM3Hqm/5oX1lXFUFO6oFmeSH865rYK9Zk=",
-    "last_login": "2022-02-14T02:23:05.760Z",
-    "is_superuser": false,
-    "username": "chimaera",
-    "first_name": "efvcwfv",
-    "last_name": "fevsdf",
-    "email": "nish@mail.ru",
-    "is_staff": false,
+    "password": "pbkdf2_sha256$320000$RUq5G9J2vQEzErLBOqU5ss$RmM4PPGlO97kZpbYAdvu+LHrpV/qKBD9j8PLJ8dCwro=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "teer",
+    "first_name": "",
+    "last_name": "",
+    "email": "teer@mail.ru",
+    "is_staff": true,
     "is_active": true,
-    "date_joined": "2022-02-14T02:23:05.482Z",
-    "groups": [],
+    "date_joined": "2022-02-17T09:55:44Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$5jY9h18JcofxA9JhiborRY$NyiHbnIw3+UDKfHNohEjauXGhejRwUaXbLh36AWIqZU=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "lice",
+    "first_name": "",
+    "last_name": "",
+    "email": "lice@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-02-17T09:56:28Z",
+    "groups": [
+      [
+        "Team Lead"
+      ]
+    ],
     "user_permissions": []
   }
 }
