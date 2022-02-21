@@ -23,6 +23,19 @@ class Profile(models.Model):
         blank=False
     )
 
+    link = models.URLField(
+        max_length=200,
+        null=True,
+        blank=False
+    )
+
+    about_field = models.TextField(
+        max_length=200,
+        null=True,
+        blank=False,
+        verbose_name="About"
+    )
+
     class Meta:
         verbose_name = "Profile"
         verbose_name_plural = "Profiles"
