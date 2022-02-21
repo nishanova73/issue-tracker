@@ -2,9 +2,8 @@ from django.db import models
 
 # Create your models here.
 from webapp.validators import MinLengthValidator
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.urls import reverse
-User = get_user_model()
 
 
 class Task(models.Model):
@@ -63,7 +62,7 @@ class Project(models.Model):
                              validators=(MinLengthValidator(7),))
     description = models.TextField(max_length=200, null=False, blank=False, verbose_name="Description",
                                    validators=(MinLengthValidator(15),))
-    user = models.ManyToManyField(User, max_length=15, related_name='users')
+    user = models.ManyToManyField(User, verbose_name=("ProjectUsers"))
 
     def get_absolute_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.pk})
