@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User account: {{ user_object.username }}</h1>
+    <p><strong>Email: </strong>{{ user_object.email|default:"Not specified"}}</p>
+    <p><strong>Date of birth: </strong>{{ user_object.profile.birth_date|date:'d.m.Y'|default:"Not specified" }}</p>
+    <p><strong>Second name: </strong>{{ user_object.last_name|default:"Not specified" }}</p>
+    <p><strong>Name: </strong>{{ user_object.first_name|default:"Not specified" }}</p>
+
+    {% if user_object.profile.avatar %}
+        <img src="{{ user_object.profile.avatar.url }}" alt="user avatar">
+    {% endif %}
+
+    {% include "partial/article_list.html" %}
+
+{% endblock content %}
