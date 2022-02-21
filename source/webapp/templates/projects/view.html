@@ -43,6 +43,13 @@
         {% endif %}
     {% endfor %}
 
+<h3>Users</h3>
+    {% for user in project_users %}<a href="{% url 'accounts:user-profile' user.pk %}">{{ user }}</a>
+        {% if perms.auth.delete_user and request.users in project.users.all %}
+                <button class="remove_user bi bi-person-x" name="user_id" value="{{ user.pk }}"></button>
+                {% endif %}
+    {% endfor %}
+
     {% if is_paginated %}
             {% include 'partial/pagination.html' %}
     {% endif %}

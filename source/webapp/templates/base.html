@@ -35,7 +35,7 @@
                         <a class="nav-link" href="{% url 'webapp:main_page2' %}">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <p class="nav-link">Привет, <a href="{% url 'accounts:user-profile' user.id %}">{{ user.username }}</a></p>
+                        <p class="nav-link">Profile, <a href="{% url 'accounts:user-profile' user.id %}">{{ user.username }}</a></p>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'accounts:logout' %}">Exit</a>
