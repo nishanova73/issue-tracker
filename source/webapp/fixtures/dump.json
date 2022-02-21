@@ -1,88 +1,17 @@
+Local file of project's setting isn't set
 [
 {
     "model": "webapp.task",
-    "pk": 1,
+    "pk": 17,
     "fields": {
-        "description": "bqeakrj6tyur3fhq4wo87rgfyvhasndgyfvafd",
-        "detailed_description": "dfvguaebvd,madfyugyhvnljasfhdziuyghanm,fdsnbhkv bzdf",
+        "description": "сувсффуывсвсуыefvedvsdvdsv",
+        "detailed_description": "уцвсмумцвсфЦувсуцыв",
         "statuses": 3,
         "project": 1,
-        "created_at": "2022-01-31T08:03:44.935Z",
-        "updated_at": "2022-01-31T08:03:44.935Z",
+        "created_at": "2022-02-21T07:03:40.723Z",
+        "updated_at": "2022-02-21T07:03:40.723Z",
         "types": [
             1,
-            3
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 2,
-    "fields": {
-        "description": "iw374thfvjnaeuydfsyghfsdfgba",
-        "detailed_description": "djkhcdfvayerhbvszfsdbf,adyfsvna,jdflb",
-        "statuses": 2,
-        "project": 1,
-        "created_at": "2022-01-31T08:07:49.869Z",
-        "updated_at": "2022-01-31T08:07:49.869Z",
-        "types": []
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 3,
-    "fields": {
-        "description": "u34yrfhbcajksduhgvn,zuildshjkvnm,as",
-        "detailed_description": "djcvyahwebfbvcjkeayrhfbaey6w45yeo8grvbjkz bjfvasdv",
-        "statuses": 3,
-        "project": 2,
-        "created_at": "2022-02-03T04:05:22.197Z",
-        "updated_at": "2022-02-03T04:05:22.197Z",
-        "types": [
-            1,
-            3
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 5,
-    "fields": {
-        "description": "srvsdrfbvsfdgbsfhghmndbsfgfnbg",
-        "detailed_description": "gbgfbrnhtdfnbg sdhfngbdhgfngbsfgdfs",
-        "statuses": 2,
-        "project": 3,
-        "created_at": "2022-02-03T05:51:15.327Z",
-        "updated_at": "2022-02-03T05:51:15.327Z",
-        "types": []
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 6,
-    "fields": {
-        "description": "8734pgefbcjkwegrijasvbwhjerhg",
-        "detailed_description": "kedjyvt87fqgebrhvgwesrkjfnbpvhwrstb",
-        "statuses": 3,
-        "project": 2,
-        "created_at": "2022-02-03T05:51:31.212Z",
-        "updated_at": "2022-02-03T05:51:31.212Z",
-        "types": [
-            2
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 7,
-    "fields": {
-        "description": "ersoify23pq9gibrefc78yaehvbrhgviu;owfegryiobgsr",
-        "detailed_description": "lkesdyf6vqgejrpfy8gwerjpovcuyiegfjbnvoiysrvmwrfv",
-        "statuses": 2,
-        "project": 2,
-        "created_at": "2022-02-03T05:51:42.950Z",
-        "updated_at": "2022-02-03T05:51:42.950Z",
-        "types": [
             2,
             3
         ]
@@ -90,107 +19,167 @@
 },
 {
     "model": "webapp.task",
-    "pk": 8,
+    "pk": 18,
     "fields": {
-        "description": "rqelitu7fy2b45r9e7vygwh4ljgrw455",
-        "detailed_description": "45yg35t4b5tbrymnoufuy7gubhjnkmljiu7y6t7rdfcgbv mn,k",
-        "statuses": 2,
+        "description": "vsdvdsvdsasdvsdvsdavasdvasd",
+        "detailed_description": "qsdhvsdhkbcnmsdkhjncdsvsd",
+        "statuses": 1,
         "project": 1,
-        "created_at": "2022-02-03T05:51:58.849Z",
-        "updated_at": "2022-02-03T05:51:58.849Z",
-        "types": [
-            1
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 10,
-    "fields": {
-        "description": "2hryth46drvshebdsgvrrtbnr6etyrsvqe4",
-        "detailed_description": "vtgbetnr6uyetb wr5t5tyjhreyt",
-        "statuses": 3,
-        "project": 3,
-        "created_at": "2022-02-03T05:52:32.700Z",
-        "updated_at": "2022-02-03T05:52:32.700Z",
-        "types": [
-            2
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 11,
-    "fields": {
-        "description": "v etygvwr745yfhncaekyhefrcafvet",
-        "detailed_description": "bwuirv87c6tgabhcjeygbhcnmkliu89y7gvhb nm,l;",
-        "statuses": 2,
-        "project": 2,
-        "created_at": "2022-02-03T05:52:57.812Z",
-        "updated_at": "2022-02-03T05:52:57.813Z",
-        "types": [
-            2
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 12,
-    "fields": {
-        "description": "Qretq45673bnjehtgvbetynbew5rat",
-        "detailed_description": "etb srtb 5yen7bvuhcйн3пуицсмцй4ееимцкпафу",
-        "statuses": 3,
-        "project": 3,
-        "created_at": "2022-02-03T05:53:15.531Z",
-        "updated_at": "2022-02-03T05:53:15.531Z",
-        "types": [
-            2
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 13,
-    "fields": {
-        "description": "ds,mvhcayiusdhJKvlkhcsd",
-        "detailed_description": "sdhjgvutDNjghckjgsdggjkvcuyasdk",
-        "statuses": 2,
-        "project": 2,
-        "created_at": "2022-02-10T05:01:00.306Z",
-        "updated_at": "2022-02-10T05:01:00.306Z",
-        "types": [
-            1
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 14,
-    "fields": {
-        "description": "kehfuchaosdhvoahoisd",
-        "detailed_description": "sdjvc7tsDIUGKJbvhy;8TSDUUyivluopdopuvopsd",
-        "statuses": 2,
-        "project": 2,
-        "created_at": "2022-02-14T02:23:22.517Z",
-        "updated_at": "2022-02-14T02:23:22.517Z",
-        "types": [
-            1
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 15,
-    "fields": {
-        "description": "kjsdvadsvasdвысмфывмыфвмыйв",
-        "detailed_description": "высмфывsdvфывмывДомнщыво",
-        "statuses": 2,
-        "project": 2,
-        "created_at": "2022-02-17T08:53:33.891Z",
-        "updated_at": "2022-02-17T08:53:33.891Z",
+        "created_at": "2022-02-21T07:04:04.235Z",
+        "updated_at": "2022-02-21T07:04:04.235Z",
         "types": [
             1,
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 19,
+    "fields": {
+        "description": "adsvadsvasdvsadvsdvsad",
+        "detailed_description": "vasdvadsvasdvasdasdvasdvsadv",
+        "statuses": 2,
+        "project": 2,
+        "created_at": "2022-02-21T07:04:20.061Z",
+        "updated_at": "2022-02-21T07:04:20.061Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 20,
+    "fields": {
+        "description": "dvdassdvasdvasdvasdvas",
+        "detailed_description": "dvasdvqwrt5y6u5rtgvcsdvfd",
+        "statuses": 2,
+        "project": 1,
+        "created_at": "2022-02-21T07:04:40.109Z",
+        "updated_at": "2022-02-21T07:04:40.109Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 21,
+    "fields": {
+        "description": "ddvsdvdsvddds23512451235",
+        "detailed_description": "ddsvsdvsdvkdjvkjhsdjvldkjlasjldva",
+        "statuses": 1,
+        "project": 1,
+        "created_at": "2022-02-21T07:04:56.695Z",
+        "updated_at": "2022-02-21T07:04:56.695Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 22,
+    "fields": {
+        "description": "asdlkjaidsnlkvopijahbj m,vvk",
+        "detailed_description": "ds mnbhghuijokpld[;'\r\ndd",
+        "statuses": 2,
+        "project": 1,
+        "created_at": "2022-02-21T07:05:06.663Z",
+        "updated_at": "2022-02-21T07:05:06.663Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 23,
+    "fields": {
+        "description": "uytghbnm ,klihdcdnsolkn.,",
+        "detailed_description": "dshiul;/'p[iwupipdhc[]\\3462345",
+        "statuses": 3,
+        "project": 1,
+        "created_at": "2022-02-21T07:05:22.869Z",
+        "updated_at": "2022-02-21T07:05:22.869Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 24,
+    "fields": {
+        "description": "dcasc sdcdscsвсфscawdva3fvasd",
+        "detailed_description": "scascascdvsrfdsredcawsdcasd",
+        "statuses": 2,
+        "project": 2,
+        "created_at": "2022-02-21T07:05:47.582Z",
+        "updated_at": "2022-02-21T07:05:47.582Z",
+        "types": [
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 25,
+    "fields": {
+        "description": "dfvadgrtfvcdsdfvdfvsasdvasdvasda",
+        "detailed_description": "dfvbdfvadsvasdvasdvvasdvadv",
+        "statuses": 2,
+        "project": 1,
+        "created_at": "2022-02-21T07:06:05.265Z",
+        "updated_at": "2022-02-21T07:06:05.265Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 26,
+    "fields": {
+        "description": "davasdvqearqgvwrsafv",
+        "detailed_description": "tsarfvsrfvsrfvcasAgrwgedsvasdvcas",
+        "statuses": 3,
+        "project": 2,
+        "created_at": "2022-02-21T07:06:26.796Z",
+        "updated_at": "2022-02-21T07:06:26.797Z",
+        "types": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 27,
+    "fields": {
+        "description": "sdfvasfhetymnthnbbfdbv",
+        "detailed_description": "fdbrstbsiurfhbjeiuvfjkdl;ikp;v",
+        "statuses": 1,
+        "project": 1,
+        "created_at": "2022-02-21T07:06:39.874Z",
+        "updated_at": "2022-02-21T07:06:39.874Z",
+        "types": [
             3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 28,
+    "fields": {
+        "description": "b vaDFZSvaSDdsvsdvsdva",
+        "detailed_description": "avsdbvadfva zdf",
+        "statuses": 2,
+        "project": 2,
+        "created_at": "2022-02-21T07:07:13.370Z",
+        "updated_at": "2022-02-21T07:07:13.371Z",
+        "types": [
+            1
         ]
     }
 },
@@ -240,50 +229,56 @@
     "model": "webapp.project",
     "pk": 1,
     "fields": {
-        "date_started": "2022-01-01",
-        "date_finished": null,
-        "title": "adfiyq37487tuofhweio",
-        "description": "dfviyehjrngvkl/a7osdhknvkasbhsfg"
+        "date_started": "2022-02-21",
+        "date_finished": "2022-02-21",
+        "title": "qrjluefvhjklafdjkhlv",
+        "description": "ioe8rfygcbweudygcbhjdychineudgubcj vnehfbvcnedfc",
+        "users": [
+            3,
+            7
+        ]
     }
 },
 {
     "model": "webapp.project",
     "pk": 2,
     "fields": {
-        "date_started": "2026-01-10",
-        "date_finished": "2031-08-16",
-        "title": "erlfgkq9834bjw,BN KU",
-        "description": "jiyhnhueargjgv.kjaejkryhjktn;q83y4ihwurkjvhaefbssdfvadfvajhgvugkiiughio###$"
+        "date_started": "2022-02-21",
+        "date_finished": null,
+        "title": "sdceartfercvsdcsdvcs",
+        "description": "sdvsdvewewмсуыквасмвкуцымс",
+        "users": [
+            3,
+            8
+        ]
     }
 },
 {
     "model": "webapp.project",
     "pk": 3,
     "fields": {
-        "date_started": "2023-04-01",
-        "date_finished": "2029-05-10",
-        "title": "76236rgFTUYVMIR",
-        "description": "m.nzoyfbxhnz,ehrysgvhbzbsg yiuqerbkUHGRFH"
+        "date_started": "2022-01-01",
+        "date_finished": null,
+        "title": "hYUFGVYRF*IYUa",
+        "description": "dsvadfvsafvasefv aefvdasdvasd",
+        "users": [
+            8
+        ]
     }
 },
 {
     "model": "webapp.project",
     "pk": 4,
     "fields": {
-        "date_started": "2022-06-05",
-        "date_finished": "2027-10-06",
-        "title": "uiw346tgjnbzghyRTYHF",
-        "description": "kjyseryufbjkvaeyfygtRFGHU&^TGBNMOU"
-    }
-},
-{
-    "model": "webapp.project",
-    "pk": 5,
-    "fields": {
-        "date_started": "2026-07-10",
-        "date_finished": "2031-02-01",
-        "title": "wdcjsidyhkchhHGJUYYG",
-        "description": "hzxtyvghtytGY&^%RFVBNJoizuyd986v8q7egfuxxgfbsregdf"
+        "date_started": "2022-04-01",
+        "date_finished": null,
+        "title": "srgovuqepyiahorjvjai",
+        "description": "wkejfcuyigabwndcygfWehbfu8wuehufhiiwe",
+        "users": [
+            3,
+            7,
+            8
+        ]
     }
 }
 ]

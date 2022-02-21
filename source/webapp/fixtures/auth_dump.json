@@ -1,3 +1,4 @@
+Local file of project's setting isn't set
 [
 {
   "model": "auth.group",
@@ -86,8 +87,8 @@
   "pk": 3,
   "fields": {
     "password": "pbkdf2_sha256$320000$nKa1ddw1zGg6BpZnLxE4ug$w9tszNMMGgZwsqLdt+vXQXFv67nCGUYpP6lWpeVrRJE=",
-    "last_login": "2022-02-17T09:54:02Z",
-    "is_superuser": true,
+    "last_login": "2022-02-21T07:00:41.201Z",
+    "is_superuser": false,
     "username": "root",
     "first_name": "",
     "last_name": "",
@@ -108,8 +109,8 @@
   "pk": 7,
   "fields": {
     "password": "pbkdf2_sha256$320000$RUq5G9J2vQEzErLBOqU5ss$RmM4PPGlO97kZpbYAdvu+LHrpV/qKBD9j8PLJ8dCwro=",
-    "last_login": null,
-    "is_superuser": true,
+    "last_login": "2022-02-17T11:52:02.150Z",
+    "is_superuser": false,
     "username": "teer",
     "first_name": "",
     "last_name": "",
@@ -130,8 +131,8 @@
   "pk": 8,
   "fields": {
     "password": "pbkdf2_sha256$320000$5jY9h18JcofxA9JhiborRY$NyiHbnIw3+UDKfHNohEjauXGhejRwUaXbLh36AWIqZU=",
-    "last_login": null,
-    "is_superuser": true,
+    "last_login": "2022-02-17T11:55:53.685Z",
+    "is_superuser": false,
     "username": "lice",
     "first_name": "",
     "last_name": "",
