@@ -116,7 +116,6 @@ LOGIN_REDIRECT_URL = "webapp:main_page"
 LOGIN_URL = 'accounts:login'
 
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -126,3 +125,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = BASE_DIR.joinpath("uploads")
+MEDIA_URL = "media/"
+
+
+try:
+    from source.local_settings import *
+except ModuleNotFoundError:
+    print("Local file of project's setting isn't set")
