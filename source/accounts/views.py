@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView, DetailView
 
+from webapp.models import Project
 from accounts.forms import MyUserCreationForm
 from accounts.models import Profile
 
@@ -59,11 +60,9 @@ class UserProfileView(LoginRequiredMixin, DetailView):
     paginate_related_orphans = 0
 
     def get_context_data(self, **kwargs):
-        paginator = Paginator(
-            self.get_object().articles.all(),
-            self.paginate_related_by,
-            self.paginate_related_orphans,
-        )
+        object_list = Project.objects.filter(users__username__icontains=self.object.username)
+        context = super(DetailView, self).get_context_data(object_list=object_list, **kwargs)
+        return context
 
         page_number = self.request.GET.get('page', 1)
         page = paginator.get_page(page_number)
