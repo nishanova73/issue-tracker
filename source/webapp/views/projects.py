@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import (
-    LoginRequiredMixin,
     PermissionRequiredMixin,
+    UserPassesTestMixin,
 )
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
@@ -29,7 +29,7 @@ class CreateProjectView(PermissionRequiredMixin, CreateView):
     template_name = "projects/create.html"
 
     def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().user
+        return super().has_permission() or self.request.user.username == self.get_object().author
 
 class ProjectView(DetailView):
     template_name = 'projects/view.html'
@@ -47,7 +47,7 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     model = Project
 
     def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().user
+        return super().has_permission() or self.request.user.username == self.get_object().author
 
 
 class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
@@ -87,4 +87,4 @@ class ProjectCreateTask(PermissionRequiredMixin, CreateView):
         return redirect('webapp:task_view', pk=task.pk)
 
     def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().user
+        return super().has_permission() or self.request.user.username == self.get_object().author
