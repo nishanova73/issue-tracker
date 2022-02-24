@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Project {{ project.pk }}
+{% endblock %}
+
+{% block nav %}{% endblock %}
+{% block content %}
+<h2>Change project users</h2>
+
+        <form method="post">
+            {% include 'partials/form.html' with button_txt="Save" %}
+        </form>
+
+{% endblock %}
