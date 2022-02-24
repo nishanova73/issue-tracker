@@ -16,6 +16,9 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'webapp:change_project_users' project.pk %}">Change users of this project</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:project_users' project.pk %}">Users of this project</a>
+        </li>
 {% endif %}
 {% endblock %}
 {% block content %}
