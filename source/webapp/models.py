@@ -62,7 +62,7 @@ class Project(models.Model):
                              validators=(MinLengthValidator(7),))
     description = models.TextField(max_length=200, null=False, blank=False, verbose_name="Description",
                                    validators=(MinLengthValidator(15),))
-    users = models.ManyToManyField(User)
+    users = models.ManyToManyField(User, related_name='projects', verbose_name="Users of project")
 
     def get_absolute_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.pk})
