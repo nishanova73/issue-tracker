@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from webapp.views.base import TemplateView
-from webapp.forms import ProjectForm, TaskForm, ProjectDeleteForm
+from webapp.forms import ProjectForm, TaskForm, ProjectDeleteForm, ProjectUsersForm
 from webapp.models import Project, Task
 
 
@@ -28,8 +28,14 @@ class CreateProjectView(PermissionRequiredMixin, CreateView):
     form_class = ProjectForm
     template_name = "projects/create.html"
 
-    def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().author
+    def get_success_url(self):
+        return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
+
+    def form_valid(self, form):
+        response = super(CreateProjectView, self).form_valid(form)
+        self.object.users.add(self.request.user)
+        return response
+
 
 class ProjectView(DetailView):
     template_name = 'projects/view.html'
@@ -46,8 +52,15 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = "projects/update.html"
     model = Project
 
+    def get_success_url(self):
+        return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
+
     def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().author
+        return super().has_permission() or self.request.user == self.get_object().user
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
@@ -56,22 +69,23 @@ class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = "projects/delete.html"
     success_url = reverse_lazy('webapp:main_page2')
 
-    def dispatch(self, request, *args, **kwargs):
-        if self.request.method == "POST":
-            self.object_form = ProjectDeleteForm(instance=self.get_object(), data=self.request.POST)
-        else:
-            self.object_form = ProjectDeleteForm()
-        return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     if self.request.method == "POST":
+    #         self.object_form = ProjectDeleteForm(instance=self.get_object(), data=self.request.POST)
+    #     else:
+    #         self.object_form = ProjectDeleteForm()
+    #     return super().dispatch(request, *args, **kwargs)
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['form'] = self.object_form
+    #     return context
+    #
+    # def post(self, request, *args, **kwargs):
+    #     if self.object_form.is_valid():
+    #         return super().delete(request, *args, **kwargs)
+    #     return super().get(request, *args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = self.object_form
-        return context
-
-    def post(self, request, *args, **kwargs):
-        if self.object_form.is_valid():
-            return super().delete(request, *args, **kwargs)
-        return super().get(request, *args, **kwargs)
 
 class ProjectCreateTask(PermissionRequiredMixin, CreateView):
     permission_required = "webapp.add_task"
@@ -87,4 +101,13 @@ class ProjectCreateTask(PermissionRequiredMixin, CreateView):
         return redirect('webapp:task_view', pk=task.pk)
 
     def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().author
+        return super().has_permission() or self.request.user.username == self.get_object().user_pr
+
+
+class ChangeProjectUsers(PermissionRequiredMixin, UpdateView):
+    model = Project
+    template_name = 'project/change_users.html'
+    form_class = ProjectUsersForm
+
+    def get_success_url(self):
+        return reverse('webapp:project_view', kwargs={'pk': self.object.pk})

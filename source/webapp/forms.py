@@ -51,6 +51,7 @@ class TaskDeleteForm(forms.ModelForm):
             raise ValidationError("Description isn't valid")
         return self.cleaned_data.get("description")
 
+
 class ProjectDeleteForm(forms.ModelForm):
     class Meta:
         model = Project
@@ -62,3 +63,9 @@ class ProjectDeleteForm(forms.ModelForm):
             print('error')
             raise ValidationError("Title isn't valid")
         return self.cleaned_data.get("title")
+
+
+class ProjectUsersForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ('users',)
