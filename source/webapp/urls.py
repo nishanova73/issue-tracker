@@ -13,6 +13,7 @@ from webapp.views import (
     IndexView_,
     ProjectCreateTask,
     ChangeProjectUsers,
+    ProjectUsers,
 )
 
 app_name = 'webapp'
@@ -31,4 +32,5 @@ urlpatterns = [
     path('projects/', IndexView_.as_view(), name="main_page2"),
     path('project/<int:pk>/task/add/', ProjectCreateTask.as_view(), name="project_task_add"),
     path('project/<int:pk>/change_users/', ChangeProjectUsers.as_view(), name='change_project_users'),
+    path('project/<int:project_pk>/users/', ProjectUsers.as_view(),  name='project_users'),
 ]

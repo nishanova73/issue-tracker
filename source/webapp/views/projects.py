@@ -111,3 +111,17 @@ class ChangeProjectUsers(UpdateView):
 
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
+
+
+class ProjectUsers(PermissionRequiredMixin, DetailView):
+    model = Project
+    template_name = 'projects/project_users.html'
+    pk_url_kwarg = 'project_pk'
+    permission_required = 'webapp.can_manage_users'
+
+    def has_permission(self):
+        bool_val = any(user == self.request.user for user in self.get_object().users.all())
+        return super().has_permission() and bool_val
+
+    def get_success_url(self):
+        return reverse('webapp:main_page2')
