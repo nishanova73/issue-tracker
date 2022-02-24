@@ -44,8 +44,8 @@
     {% endfor %}
 
 <h3>Users</h3>
-    {% for user in project.users.all %}
-    <h5 style="color: whitesmoke">{{ user.username }}</h5>
+    {% for user_pr in project.users.all %}
+    <h5 style="color: whitesmoke">{{ user_pr.username }}</h5>
     {% empty %}
         <li>There are no users in the project yet</li>
     {% endfor %}
