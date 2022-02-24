@@ -29,6 +29,11 @@ class Task(models.Model):
         db_table = 'Tasks'
         verbose_name = 'task'
         verbose_name_plural = 'tasks'
+        permissions = (
+            ("add_task_in_own_project", "Add tasks in own project"),
+            ("change_task_in_own_project", "Change tasks in own project"),
+            ("delete_task_in_own_project", "Delete tasks in own project"),
+        )
 
 
 class StatusModel(models.Model):
@@ -74,3 +79,6 @@ class Project(models.Model):
         db_table = 'Projects'
         verbose_name = 'project'
         verbose_name_plural = 'projects'
+        permissions = (
+            ("change_user_in_own_project", "Change user in own project"),
+        )

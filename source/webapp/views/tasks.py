@@ -9,7 +9,7 @@ from django.views.generic import FormView, ListView, DetailView, CreateView, Upd
 
 from webapp.views.base import TemplateView, FormView as CustomFormView
 from webapp.forms import TaskForm, SearchForm, TaskDeleteForm
-from webapp.models import Task
+from webapp.models import Task, Project
 
 class IndexView(ListView):
     model = Task
@@ -54,8 +54,26 @@ class CreateTaskView(PermissionRequiredMixin, CreateView):
     form_class = TaskForm
     template_name = "task_create.html"
 
+    def get_project(self):
+        project_pk = self.request.POST.get("project")
+        return get_object_or_404(Project, pk=project_pk)
+
     def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().user
+        has_permission = super().has_permission()
+
+        if self.request.method == "POST":
+            has_permission = (
+                has_permission
+                and self.get_project().users.filter(pk=self.request.user.pk).exists()
+            )
+        return has_permission
+
+    def form_valid(self, form):
+        self.object = form.save()
+        return super().form_valid(form)
+
+    def get_redirect_url(self):
+        return redirect('webapp:task_view', pk=self.object.pk)
 
 
 class TaskView(DetailView):
@@ -70,34 +88,29 @@ class TaskView(DetailView):
 
 
 class TaskUpdateView(PermissionRequiredMixin, UpdateView):
-    permission_required = "webapp.change_task"
+    permission_required = "webapp.change_task_in_own_project"
     form_class = TaskForm
     template_name = "task_update.html"
     model = Task
 
+    def get_success_url(self):
+        return reverse('webapp:task_view', kwargs={'pk': self.object.pk})
+
     def has_permission(self):
-        return super().has_permission() or self.request.user.username == self.get_object().user
+        return (
+            super().has_permission()
+            and self.get_object().project.users.filter(pk=self.request.user.pk).exists()
+        )
 
 
 class TaskDeleteView(PermissionRequiredMixin, DeleteView):
-    permission_required = "webapp.delete_task"
+    permission_required = "webapp.delete_task_in_own_project"
     model = Task
     template_name = "task_delete.html"
     success_url = reverse_lazy('webapp:main_page')
 
-    def dispatch(self, request, *args, **kwargs):
-        if self.request.method == "POST":
-            self.object_form = TaskDeleteForm(instance=self.get_object(), data=self.request.POST)
-        else:
-            self.object_form = TaskDeleteForm()
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = self.object_form
-        return context
-
-    def post(self, request, *args, **kwargs):
-        if self.object_form.is_valid():
-            return super().delete(request, *args, **kwargs)
-        return super().get(request, *args, **kwargs)
+    def has_permission(self):
+        return (
+                super().has_permission()
+                and self.get_object().project.users.filter(pk=self.request.user.pk).exists()
+        )

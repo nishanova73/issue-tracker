@@ -55,13 +55,6 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
 
-    def has_permission(self):
-        return super().has_permission() or self.request.user == self.get_object().user
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
 
 class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = "webapp.delete_project"
@@ -88,7 +81,7 @@ class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
 
 
 class ProjectCreateTask(PermissionRequiredMixin, CreateView):
-    permission_required = "webapp.add_task"
+    permission_required = "webapp.add_task_in_own_project"
     model = Task
     template_name = 'projects/create_task.html'
     form_class = TaskForm
@@ -104,24 +97,26 @@ class ProjectCreateTask(PermissionRequiredMixin, CreateView):
         return super().has_permission() or self.request.user.username == self.get_object().user_pr
 
 
-class ChangeProjectUsers(UpdateView):
+class ChangeProjectUsers(PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'projects/change_users.html'
     form_class = ProjectUsersForm
+    permission_required = 'webapp.change_user_in_own_project'
 
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
 
+    def has_permission(self):
+        return (
+                super().has_permission()
+                and self.get_object().users.filter(pk=self.request.user.pk).exists()
+        )
 
-class ProjectUsers(PermissionRequiredMixin, DetailView):
+
+class ProjectUsers(DetailView):
     model = Project
     template_name = 'projects/project_users.html'
     pk_url_kwarg = 'project_pk'
-    permission_required = 'webapp.can_manage_users'
-
-    def has_permission(self):
-        bool_val = any(user == self.request.user for user in self.get_object().users.all())
-        return super().has_permission() and bool_val
 
     def get_success_url(self):
-        return reverse('webapp:main_page2')
+        return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
