@@ -1,4 +1,3 @@
-Local file of project's setting isn't set
 [
 {
   "model": "auth.group",
@@ -84,40 +83,18 @@ Local file of project's setting isn't set
 },
 {
   "model": "auth.user",
-  "pk": 3,
+  "pk": 12,
   "fields": {
-    "password": "pbkdf2_sha256$320000$nKa1ddw1zGg6BpZnLxE4ug$w9tszNMMGgZwsqLdt+vXQXFv67nCGUYpP6lWpeVrRJE=",
-    "last_login": "2022-02-21T07:00:41.201Z",
+    "password": "pbkdf2_sha256$320000$TiSrTTJdOYk3ojKVZtVI0y$oW9tXFNcUyEk5cQFURyjcAiEIxlEo7L2v5zGqbyMf6A=",
+    "last_login": "2022-02-24T09:11:56.042Z",
     "is_superuser": false,
-    "username": "root",
+    "username": "dev",
     "first_name": "",
     "last_name": "",
-    "email": "root@mail.ru",
+    "email": "dev@mail.ru",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2022-02-17T06:05:02Z",
-    "groups": [
-      [
-        "Project Manager"
-      ]
-    ],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 7,
-  "fields": {
-    "password": "pbkdf2_sha256$320000$RUq5G9J2vQEzErLBOqU5ss$RmM4PPGlO97kZpbYAdvu+LHrpV/qKBD9j8PLJ8dCwro=",
-    "last_login": "2022-02-17T11:52:02.150Z",
-    "is_superuser": false,
-    "username": "teer",
-    "first_name": "",
-    "last_name": "",
-    "email": "teer@mail.ru",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2022-02-17T09:55:44Z",
+    "date_joined": "2022-02-24T08:39:28Z",
     "groups": [
       [
         "Developer"
@@ -128,21 +105,43 @@ Local file of project's setting isn't set
 },
 {
   "model": "auth.user",
-  "pk": 8,
+  "pk": 13,
   "fields": {
-    "password": "pbkdf2_sha256$320000$5jY9h18JcofxA9JhiborRY$NyiHbnIw3+UDKfHNohEjauXGhejRwUaXbLh36AWIqZU=",
-    "last_login": "2022-02-17T11:55:53.685Z",
+    "password": "pbkdf2_sha256$320000$lyEjURALdTYsxixw7HdQqS$HtauElD82HFGdIdIk55MfjSSAM5vlcbYpWKUk1zuxQQ=",
+    "last_login": "2022-02-24T08:45:22.007Z",
     "is_superuser": false,
-    "username": "lice",
+    "username": "lead",
     "first_name": "",
     "last_name": "",
-    "email": "lice@mail.ru",
+    "email": "lead@mail.ru",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2022-02-17T09:56:28Z",
+    "date_joined": "2022-02-24T08:41:06Z",
     "groups": [
       [
         "Team Lead"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$jmbZnqFYilC4qPA575Z4Ty$+eDYyKrIkpbCuHbobYLIeNLpXgctiuCqVjHFWbLw7HU=",
+    "last_login": "2022-02-24T08:46:09.249Z",
+    "is_superuser": false,
+    "username": "manager",
+    "first_name": "",
+    "last_name": "",
+    "email": "manager@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-02-24T08:42:19Z",
+    "groups": [
+      [
+        "Project Manager"
       ]
     ],
     "user_permissions": []
