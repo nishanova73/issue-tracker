@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+{% block nav %}
+    {% if user_object == user %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:update_user' %}">Change profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:change_password' %}">Change password</a>
+        </li>
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <h1>User account: {{ user_object.username }}</h1>
