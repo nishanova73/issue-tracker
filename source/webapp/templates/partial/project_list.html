@@ -1,0 +1,16 @@
+<h2>Projects</h2>
+{% for project in projects %}
+        <div>
+            <a href="{% url 'webapp:project_view' project.pk %}">
+                {{ project.name }}{{ project.description }}</a>
+            {% if perms.webapp.change_project %}
+                <a href="{% url 'webapp:project_update' project.pk %}">Update</a>
+            {% endif %}
+            {% if perms.webapp.delete_project %}
+                <a href="{% url 'webapp:project_delete' project.pk %}">Delete</a>
+            {% endif %}
+        </div>
+{% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
