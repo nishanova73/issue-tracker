@@ -104,9 +104,9 @@ class ProjectCreateTask(PermissionRequiredMixin, CreateView):
         return super().has_permission() or self.request.user.username == self.get_object().user_pr
 
 
-class ChangeProjectUsers(PermissionRequiredMixin, UpdateView):
+class ChangeProjectUsers(UpdateView):
     model = Project
-    template_name = 'project/change_users.html'
+    template_name = 'projects/change_users.html'
     form_class = ProjectUsersForm
 
     def get_success_url(self):

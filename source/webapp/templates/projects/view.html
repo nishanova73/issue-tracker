@@ -5,16 +5,16 @@
 {{pass}}
     {% else %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'webapp:project_add' %}">Create project</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Edit</a>
+            <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Edit project</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete</a>
+            <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete project</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'webapp:change_project_users' project.pk %}">Change users of this project</a>
         </li>
 {% endif %}
 {% endblock %}

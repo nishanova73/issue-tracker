@@ -8,9 +8,11 @@ Project {{ project.pk }}
 {% block nav %}{% endblock %}
 {% block content %}
 <h2>Change project users</h2>
-
+</br>
+<div>
         <form method="post">
-            {% include 'partials/form.html' with button_txt="Save" %}
+            {% include 'partial/form.html' with button_text="Save" %}
         </form>
+</div>
 
 {% endblock %}
